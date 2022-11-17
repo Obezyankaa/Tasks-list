@@ -7,15 +7,22 @@ interface PostItemProps {
     remove: (post: IPost) => void;
     update: (post: IPost) => void;
 }
-const handlerRemove = (event: React.MouseEvent) => {
-
-}
 
 const PostItem: FC<PostItemProps> = ({post, remove, update}) => {
+    const handlerRemove = (event: React.MouseEvent) => {
+        event.stopPropagation()
+        remove(post);
+    }
+
+    const handaleUpdate = (event: React.MouseEvent) => {
+        const title = prompt() || ''
+        update({...post, title})
+    }
     return (
         <div className="post">
             {post.id}. {post.title}
-            <button onClick={() => remove()} className="post__btn">X</button>
+            <button onClick={handlerRemove} className="post__btn">&#10060;</button>
+            <button onClick={handaleUpdate}>&#128221;</button>
         </div>
     )
 }
