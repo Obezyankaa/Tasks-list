@@ -4,13 +4,18 @@ import './post.sass';
 
 interface PostItemProps {
     post: IPost;
+    remove: (post: IPost) => void;
+    update: (post: IPost) => void;
+}
+const handlerRemove = (event: React.MouseEvent) => {
+
 }
 
-const PostItem: FC<PostItemProps> = ({post}) => {
+const PostItem: FC<PostItemProps> = ({post, remove, update}) => {
     return (
         <div className="post">
             {post.id}. {post.title}
-            <button className="post__btn">X</button>
+            <button onClick={() => remove()} className="post__btn">X</button>
         </div>
     )
 }
