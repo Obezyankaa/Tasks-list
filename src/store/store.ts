@@ -1,15 +1,19 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { postAPI } from '../services/PostService';
 import userReducer from './reducers/UserSlice'
 
 // корневой редьюсер 
 const rootReducer = combineReducers({
-    userReducer
+    userReducer,
+    [postAPI.reducerPath]: postAPI.reducer
 }) 
 
 // в этой функции мы конфигурируем редакс хранилище 
 export const setupStore = () => {
     return configureStore({
-        reducer: rootReducer
+        reducer: rootReducer,
+        middleware: (getDefaultMiddleware) => 
+            getDefaultMiddleware().concat(postAPI.middleware)
     })
 }
 
