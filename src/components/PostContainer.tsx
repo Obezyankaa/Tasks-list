@@ -6,11 +6,11 @@ export default function PostContainer() {
   const [limit, setLimit] = useState(10);
   const {data: posts, error, isLoading} = postAPI.useFetchAllPostsQuery(limit)
     
-  useEffect(()=> {
-    setTimeout(()=> {
-        setLimit(3)
-    },2000)
-  }, [])
+//   useEffect(()=> {
+//     setTimeout(()=> {
+//         setLimit(3)
+//     },2000)
+//   }, [])
   
   return (
     <div className='post__container'>
