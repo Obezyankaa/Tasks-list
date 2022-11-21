@@ -21,8 +21,10 @@ const PostItem: FC<PostItemProps> = ({post, remove, update}) => {
     return (
         <div className="post">
             {post.id}. {post.title}
+            <div className="post__block">
             <button onClick={handlerRemove} className="post__btn">&#10060;</button>
-            <button onClick={handaleUpdate}>&#128221;</button>
+            <button onClick={handaleUpdate} className="post__btn">&#128221;</button>
+            </div>
         </div>
     )
 }
