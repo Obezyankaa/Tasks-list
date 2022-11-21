@@ -26,7 +26,7 @@ export default function PostContainer() {
 
   return (
     <div className='post__container'>
-        <button onClick={handleCreate}>new post</button>
+        <button onClick={handleCreate}>new task</button>
         <div className='post__list'>
             {isLoading && <h1>идет загрузка</h1>}
             {error && <h1>произошла ошибка</h1>}
